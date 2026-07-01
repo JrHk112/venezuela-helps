@@ -1,0 +1,437 @@
+/* ==========================================================================
+   Directorio de Ayuda Venezuela — Hoja de estilos
+   Sistema de diseño: cálido, orgánico, sereno. Pensado para gente buscando
+   ayuda bajo estrés: alto contraste legible, formas suaves, sin ruido.
+   ========================================================================== */
+
+:root {
+  /* Tema oscuro (por defecto) — verde noche profundo, no negro puro */
+  --bg: #0f1713;
+  --bg-soft: #131d18;
+  --surface: #182420;
+  --surface-hover: #1e2d27;
+  --border: #2a3a32;
+  --text: #f3efe4;
+  --text-muted: #9fab9f;
+  --accent: #4cad7c;
+  --accent-strong: #3c9868;
+  --accent-soft: rgba(76, 173, 124, 0.14);
+  --warm: #e3a94f;
+  --warm-soft: rgba(227, 169, 79, 0.14);
+  --danger: #e8887a;
+  --shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.45);
+  --radius-lg: 1.25rem;
+  --radius-md: 0.85rem;
+  --radius-sm: 0.5rem;
+}
+
+body.light {
+  --bg: #faf6ee;
+  --bg-soft: #f3ede0;
+  --surface: #ffffff;
+  --surface-hover: #fbf8f1;
+  --border: #e6dfcd;
+  --text: #23291f;
+  --text-muted: #6b7263;
+  --accent: #2f8f5e;
+  --accent-strong: #24714a;
+  --accent-soft: rgba(47, 143, 94, 0.1);
+  --warm: #c8811f;
+  --warm-soft: rgba(200, 129, 31, 0.12);
+  --danger: #c65b4a;
+  --shadow: 0 12px 24px -14px rgba(35, 41, 31, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Manchas orgánicas de fondo, muy sutiles */
+body::before {
+  content: "";
+  position: fixed;
+  top: -12rem;
+  right: -8rem;
+  width: 32rem;
+  height: 32rem;
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -14rem;
+  left: -10rem;
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(circle, var(--warm-soft) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   Encabezado
+   ========================================================================== */
+.site-header {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.site-header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-mark {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(155deg, var(--accent) 0%, var(--accent-strong) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.brand-mark svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: #ffffff;
+}
+
+.site-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.site-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.35rem;
+  max-width: 34rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .site-title {
+    font-size: 2.15rem;
+  }
+}
+
+/* Botón de tema */
+.theme-toggle {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--surface-hover);
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ==========================================================================
+   Contenido principal
+   ========================================================================== */
+.site-main {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buscador */
+.search-wrapper {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.95rem 1.1rem 0.95rem 2.85rem;
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.98rem;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Resultado del conteo */
+.results-count {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: -1.25rem 0 1.5rem;
+  padding-left: 0.1rem;
+}
+
+/* Grid de tarjetas */
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .links-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tarjeta de enlace */
+.link-card {
+  background-color: var(--surface);
+  padding: 1.4rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+.link-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.link-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.link-card__icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background-color: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-card__icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  stroke: var(--accent);
+}
+
+.link-card__head-text {
+  min-width: 0;
+}
+
+.link-card__title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.link-card__badge {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.link-card__desc {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.link-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-align: center;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  margin-top: auto;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.link-card__cta svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.link-card__cta:hover {
+  background-color: var(--accent-strong);
+}
+
+/* ==========================================================================
+   Estados
+   ========================================================================== */
+.state-message {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.state-message svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--text-muted);
+}
+
+.state-message p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 24rem;
+}
+
+.state-message--error svg {
+  color: var(--danger);
+}
+
+.state-message--error p {
+  color: var(--danger);
+}
+
+/* Accesibilidad: foco visible en toda la página */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* Spinner de carga */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.state-message svg.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.5rem 1.25rem 2rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
