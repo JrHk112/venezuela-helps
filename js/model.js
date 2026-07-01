@@ -92,29 +92,37 @@ const LinksModel = (() => {
     return links;
   }
 
-  // Filtra por término de búsqueda normalizado (máx. 100 caracteres).
-  function filtrar(termino) {
-    const busqueda = (termino || '')
-      .slice(0, 100)
-      .toLowerCase()
-      .trim()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
+  // Devuelve las categorías únicas ordenadas.
+  function obtenerCategorias() {
+    const cats = [...new Set(links.map((l) => l.categoria))];
+    return cats.sort((a, b) => a.localeCompare(b, 'es'));
+  }
 
-    if (!busqueda) return links;
+  function normalizar(str) {
+    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  // Filtra por término de búsqueda y/o categoría activa.
+  function filtrar(termino, categoriaActiva) {
+    const busqueda = normalizar((termino || '').slice(0, 100).trim());
 
     return links.filter((link) => {
+      // Filtro por categoría
+      if (categoriaActiva && link.categoria !== categoriaActiva) return false;
+
+      // Filtro por texto
+      if (!busqueda) return true;
+
       const campos = [
         link.nombre,
         link.descripcion,
         link.categoria,
         ...link.etiquetas,
-      ].map((c) =>
-        c.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      );
+      ].map(normalizar);
+
       return campos.some((c) => c.includes(busqueda));
     });
   }
 
-  return { cargar, obtenerTodos, filtrar };
+  return { cargar, obtenerTodos, filtrar, obtenerCategorias };
 })();
