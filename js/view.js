@@ -3,11 +3,12 @@
  * No conoce de dónde vienen los datos ni cómo se obtienen.
  */
 const LinksView = (() => {
-  const contenedor   = document.getElementById('contenedor-links');
-  const buscador     = document.getElementById('buscador');
-  const resultsCount = document.getElementById('results-count');
-  const themeToggle  = document.getElementById('theme-toggle');
-  const themeIcon    = document.getElementById('theme-icon');
+  const contenedor        = document.getElementById('contenedor-links');
+  const buscador          = document.getElementById('buscador');
+  const resultsCount      = document.getElementById('results-count');
+  const themeToggle       = document.getElementById('theme-toggle');
+  const themeIcon         = document.getElementById('theme-icon');
+  const filtrosContenedor = document.getElementById('filtros-categoria');
 
   // Escapa caracteres especiales HTML para evitar XSS.
   function escapeHTML(str) {
@@ -228,5 +229,37 @@ const LinksView = (() => {
     });
   }
 
-  return { mostrarLinks, mostrarError, alBuscar, mostrarCargando };
+  // Renderiza los botones de filtro de categoría.
+  function renderizarFiltros(categorias, categoriaActiva, onFiltro) {
+    if (!filtrosContenedor) return;
+    filtrosContenedor.innerHTML = '';
+
+    // Botón "Todos"
+    const btnTodos = document.createElement('button');
+    btnTodos.type = 'button';
+    btnTodos.className = 'filtro-btn' + (!categoriaActiva ? ' filtro-btn--activo' : '');
+    btnTodos.textContent = 'Todas';
+    btnTodos.addEventListener('click', () => onFiltro(null));
+    filtrosContenedor.appendChild(btnTodos);
+
+    categorias.forEach((cat) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'filtro-btn' + (categoriaActiva === cat ? ' filtro-btn--activo' : '');
+
+      const iconSpan = document.createElement('span');
+      iconSpan.setAttribute('aria-hidden', 'true');
+      iconSpan.innerHTML = iconoDeCategoria(cat);
+
+      const label = document.createElement('span');
+      label.textContent = cat;
+
+      btn.appendChild(iconSpan);
+      btn.appendChild(label);
+      btn.addEventListener('click', () => onFiltro(cat));
+      filtrosContenedor.appendChild(btn);
+    });
+  }
+
+  return { mostrarLinks, mostrarError, alBuscar, mostrarCargando, renderizarFiltros };
 })();
