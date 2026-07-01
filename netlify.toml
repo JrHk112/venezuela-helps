@@ -1,0 +1,56 @@
+# ================================================================
+# Configuración de Netlify — Venezuela Hub
+# ================================================================
+
+[build]
+  publish = "."
+
+# ----------------------------------------------------------------
+# Encabezados HTTP de seguridad (aplican a todos los recursos)
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Evita clickjacking embebiendo el sitio en iframes de otros dominios
+    X-Frame-Options = "DENY"
+
+    # Evita que el navegador infiera MIME types erróneos
+    X-Content-Type-Options = "nosniff"
+
+    # Controla la información de Referer al hacer clic en enlaces externos
+    Referrer-Policy = "no-referrer"
+
+    # Fuerza HTTPS durante 1 año e incluye subdominios
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+    # Deshabilita funciones del navegador no necesarias para el sitio
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+    # Content Security Policy
+    # - script-src: solo mismo origen + CDN de Tailwind
+    # - style-src: mismo origen + Google Fonts + unsafe-inline (Tailwind CDN lo requiere)
+    # - connect-src: solo mismo origen (fetch de data/links.json)
+    # - frame-ancestors: ninguno (refuerza X-Frame-Options)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; form-action 'none';"
+
+# ----------------------------------------------------------------
+# Encabezados específicos para el JSON de datos
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/data/*.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+# ----------------------------------------------------------------
+# Encabezados de caché para assets estáticos
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

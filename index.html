@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio de Ayuda - Venezuela</title>
+    <meta name="description" content="Encuentra páginas de asistencia, centros de acopio e información verificada en Venezuela.">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy"
+          content="
+            default-src 'self';
+            script-src  'self' https://cdn.jsdelivr.net;
+            style-src   'self' https://fonts.googleapis.com 'unsafe-inline';
+            font-src    'self' https://fonts.gstatic.com;
+            connect-src 'self';
+            img-src     'self' data:;
+            frame-ancestors 'none';
+            form-action 'none';
+          ">
+
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="no-referrer">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen">
+
+    <header class="site-header">
+        <div>
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 21s-7.5-4.6-9.8-9.4C.6 7.9 2.6 4 6.4 4c2 0 3.4 1 5.6 3 2.2-2 3.6-3 5.6-3 3.8 0 5.8 3.9 4.2 7.6C19.5 16.4 12 21 12 21z"/>
+                    </svg>
+                </span>
+                <div>
+                    <h1 class="site-title">Directorio de Ayuda Venezuela</h1>
+                    <p class="site-subtitle">Encuentra páginas de asistencia, centros de acopio e información verificada de forma ágil.</p>
+                </div>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema claro u oscuro" type="button">
+                <span id="theme-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m21 21-4.3-4.3"/>
+            </svg>
+            <input
+                type="search"
+                id="buscador"
+                class="search-input"
+                placeholder="Busca por nombre, categoría o palabra clave (ej. medicinas, Caracas)..."
+                aria-label="Buscar en el directorio de ayuda"
+                maxlength="100"
+                autocomplete="off"
+                spellcheck="false"
+            >
+        </div>
+
+        <div id="results-count" class="results-count" aria-live="polite" role="status"></div>
+
+        <div id="contenedor-links" class="links-grid"></div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Hecho por <a href="https://www.instagram.com/jrhk112?igsh=MXA5Z3ZjZ2thbWdueg==" target="_blank" rel="noopener noreferrer">José H</a></p>
+    </footer>
+
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+</html>
