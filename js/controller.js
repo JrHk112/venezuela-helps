@@ -7,7 +7,27 @@ const LinksController = (() => {
 
     try {
       await LinksModel.cargar();
-      LinksView.mostrarLinks(LinksModel.obtenerTodos());
+
+      const categorias = LinksModel.obtenerCategorias();
+      let categoriaActiva = null;
+      let terminoBusqueda = '';
+
+      function actualizarVista() {
+        const resultados = LinksModel.filtrar(terminoBusqueda, categoriaActiva);
+        LinksView.renderizarFiltros(categorias, categoriaActiva, (cat) => {
+          categoriaActiva = cat;
+          actualizarVista();
+        });
+        LinksView.mostrarLinks(resultados);
+      }
+
+      actualizarVista();
+
+      LinksView.alBuscar((termino) => {
+        terminoBusqueda = termino;
+        actualizarVista();
+      });
+
     } catch (error) {
       console.error('Error crítico cargando los enlaces:', error);
 
@@ -20,10 +40,6 @@ const LinksController = (() => {
 
       LinksView.mostrarError(mensajeError);
     }
-
-    LinksView.alBuscar((termino) => {
-      LinksView.mostrarLinks(LinksModel.filtrar(termino));
-    });
   }
 
   return { iniciar };
