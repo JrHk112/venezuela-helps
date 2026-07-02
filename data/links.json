@@ -77,21 +77,6 @@
     ]
   },
   {
-    "nombre": "ACNUR Venezuela",
-    "categoria": "Legal",
-    "descripcion": "Agencia de la ONU para refugiados en Venezuela. Ofrece información actualizada sobre protección internacional, asilo, apatridia y prevención de desplazamiento forzado.",
-    "url": "https://help.unhcr.org/venezuela",
-    "etiquetas": [
-      "legal",
-      "refugiados",
-      "asilo",
-      "migrantes",
-      "onu",
-      "derechos",
-      "internacional"
-    ]
-  },
-  {
     "nombre": "PROVEA",
     "categoria": "Información",
     "descripcion": "Programa Venezolano de Educación-Acción en Derechos Humanos. Publica informes sobre salud, alimentación y situación humanitaria con datos verificados y actualizados.",
@@ -104,21 +89,6 @@
       "humanitaria",
       "nacional",
       "investigacion"
-    ]
-  },
-  {
-    "nombre": "Médicos por la Salud — ENH",
-    "categoria": "Salud",
-    "descripcion": "Red médica independiente que publica la Encuesta Nacional de Hospitales: el único diagnóstico verificado del sistema de salud venezolano, usado por ONU, OPS y OMS.",
-    "url": "https://www.encuestanacionaldehospitales.com",
-    "etiquetas": [
-      "salud",
-      "hospitales",
-      "datos",
-      "informes",
-      "medicos",
-      "nacional",
-      "monitoreo"
     ]
   },
   {
