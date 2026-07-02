@@ -282,6 +282,40 @@ body::after {
   color: #ffffff;
 }
 
+/* Contador numérico dentro de cada botón de filtro */
+.filtro-btn__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  padding: 0 0.28rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.12);
+  color: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.filtro-btn--activo .filtro-btn__count {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Highlight del término buscado dentro de las tarjetas */
+.highlight {
+  background-color: transparent;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* Resultado del conteo */
 .results-count {
   color: var(--text-muted);
