@@ -4,139 +4,302 @@
     "categoria": "Salud",
     "descripcion": "ONG sin fines de lucro activa desde 1995. Ofrece atención integral, medicamentos, apoyo psicoemocional y seguimiento médico. Contacto por WhatsApp: 0412 700 9696.",
     "url": "https://accionsolidaria.info",
-    "etiquetas": ["medicinas", "caracas", "salud", "nacional", "apoyo", "vih", "medicamentos"]
+    "etiquetas": [
+      "medicinas",
+      "caracas",
+      "salud",
+      "nacional",
+      "apoyo",
+      "vih",
+      "medicamentos"
+    ]
   },
   {
     "nombre": "Reporte Ya",
     "categoria": "Información",
     "descripcion": "Red ciudadana que reporta e informa en tiempo real sobre emergencias, estado de servicios públicos y situaciones críticas a nivel nacional.",
     "url": "https://x.com/ReporteYa",
-    "etiquetas": ["noticias", "emergencias", "redes", "twitter", "informacion", "servicios"]
+    "etiquetas": [
+      "noticias",
+      "emergencias",
+      "redes",
+      "twitter",
+      "informacion",
+      "servicios"
+    ]
   },
   {
     "nombre": "Cáritas Venezuela",
     "categoria": "Alimentación",
     "descripcion": "Organización nacional con más de 30.000 voluntarios. Atiende nutrición, salud, agua, saneamiento, movilidad humana y seguridad alimentaria. Cuenta con ollas comunitarias y consultas médicas en todo el país.",
     "url": "https://caritasvenezuela.org",
-    "etiquetas": ["alimentacion", "salud", "nacional", "voluntarios", "nutricion", "migrantes", "iglesia", "acopio"]
+    "etiquetas": [
+      "alimentacion",
+      "salud",
+      "nacional",
+      "voluntarios",
+      "nutricion",
+      "migrantes",
+      "iglesia",
+      "acopio"
+    ]
   },
   {
     "nombre": "RedQuipu",
     "categoria": "Emergencias",
     "descripcion": "Plataforma venezolana sin fines de lucro con 172 centros activos en 21 estados. Conecta personas con refugios, centros de acopio, atención médica y equipos de rescate en tiempo real.",
     "url": "https://redquipu.com",
-    "etiquetas": ["emergencias", "refugios", "acopio", "rescate", "nacional", "terremoto", "mapa", "centros"]
+    "etiquetas": [
+      "emergencias",
+      "refugios",
+      "acopio",
+      "rescate",
+      "nacional",
+      "terremoto",
+      "mapa",
+      "centros"
+    ]
   },
   {
     "nombre": "Info Ayuda Venezuela",
     "categoria": "Emergencias",
     "descripcion": "Directorio digital con centros de acopio, refugios y números de emergencia verificados. Incluye chatbot de ayuda, guía de donaciones y mapa de zonas afectadas por sismos.",
     "url": "https://www.infoayudavenezuela.site",
-    "etiquetas": ["emergencias", "refugios", "donaciones", "sismo", "terremoto", "caracas", "centros", "numeros"]
+    "etiquetas": [
+      "emergencias",
+      "refugios",
+      "donaciones",
+      "sismo",
+      "terremoto",
+      "caracas",
+      "centros",
+      "numeros"
+    ]
   },
   {
     "nombre": "ACNUR Venezuela",
     "categoria": "Legal",
     "descripcion": "Agencia de la ONU para refugiados en Venezuela. Ofrece información actualizada sobre protección internacional, asilo, apatridia y prevención de desplazamiento forzado.",
     "url": "https://help.unhcr.org/venezuela",
-    "etiquetas": ["legal", "refugiados", "asilo", "migrantes", "onu", "derechos", "internacional"]
+    "etiquetas": [
+      "legal",
+      "refugiados",
+      "asilo",
+      "migrantes",
+      "onu",
+      "derechos",
+      "internacional"
+    ]
   },
   {
     "nombre": "PROVEA",
     "categoria": "Información",
     "descripcion": "Programa Venezolano de Educación-Acción en Derechos Humanos. Publica informes sobre salud, alimentación y situación humanitaria con datos verificados y actualizados.",
     "url": "https://provea.org",
-    "etiquetas": ["derechos", "informes", "denuncia", "salud", "humanitaria", "nacional", "investigacion"]
+    "etiquetas": [
+      "derechos",
+      "informes",
+      "denuncia",
+      "salud",
+      "humanitaria",
+      "nacional",
+      "investigacion"
+    ]
   },
   {
     "nombre": "Médicos por la Salud — ENH",
     "categoria": "Salud",
     "descripcion": "Red médica independiente que publica la Encuesta Nacional de Hospitales: el único diagnóstico verificado del sistema de salud venezolano, usado por ONU, OPS y OMS.",
     "url": "https://www.encuestanacionaldehospitales.com",
-    "etiquetas": ["salud", "hospitales", "datos", "informes", "medicos", "nacional", "monitoreo"]
+    "etiquetas": [
+      "salud",
+      "hospitales",
+      "datos",
+      "informes",
+      "medicos",
+      "nacional",
+      "monitoreo"
+    ]
   },
   {
     "nombre": "Ayuda Humanitaria Venezuela",
     "categoria": "Alimentación",
     "descripcion": "ONG 501(c)(3) que recolecta y distribuye medicamentos, insumos médicos y alimentos no perecederos gratuitamente a instituciones sin fines de lucro en Venezuela.",
     "url": "https://www.ayudahumanitariavenezuela.org",
-    "etiquetas": ["donaciones", "alimentacion", "medicinas", "insumos", "internacional", "distribucion"]
+    "etiquetas": [
+      "donaciones",
+      "alimentacion",
+      "medicinas",
+      "insumos",
+      "internacional",
+      "distribucion"
+    ]
   },
   {
     "nombre": "Cruz Roja Venezolana",
     "categoria": "Emergencias",
     "descripcion": "Opera búsqueda y rescate, primeros auxilios, evaluación de daños y asistencia a familias tras desastres. Coordina refugio temporal, agua segura y apoyo psicosocial.",
     "url": "https://www.cruzrojavenezolana.org",
-    "etiquetas": ["rescate", "emergencias", "salud", "refugio", "nacional", "desastres", "primeros auxilios"]
+    "etiquetas": [
+      "rescate",
+      "emergencias",
+      "salud",
+      "refugio",
+      "nacional",
+      "desastres",
+      "primeros auxilios"
+    ]
   },
   {
     "nombre": "Desaparecidos Terremoto Venezuela",
     "categoria": "Búsqueda y Localización",
     "descripcion": "Plataforma ciudadana para reportar personas desaparecidas o identificar a quienes ya están en centros de asistencia.",
     "url": "https://desaparecidosterremotovenezuela.com",
-    "etiquetas": ["desaparecidos", "terremoto", "busqueda", "localizacion", "ciudadana", "reportes"]
+    "etiquetas": [
+      "desaparecidos",
+      "terremoto",
+      "busqueda",
+      "localizacion",
+      "ciudadana",
+      "reportes"
+    ]
   },
   {
     "nombre": "Terremoto VE — Acceso Libre",
     "categoria": "Búsqueda y Localización",
     "descripcion": "Mapa colaborativo de la organización Acceso Libre para reportar edificios colapsados y personas desaparecidas sin necesidad de registro.",
     "url": "https://terremotove.netlify.app",
-    "etiquetas": ["mapa", "colaborativo", "desaparecidos", "edificios", "colapso", "sin registro", "terremoto"]
+    "etiquetas": [
+      "mapa",
+      "colaborativo",
+      "desaparecidos",
+      "edificios",
+      "colapso",
+      "sin registro",
+      "terremoto"
+    ]
   },
   {
     "nombre": "Terremoto — Hazlo Hoy",
     "categoria": "Búsqueda y Localización",
     "descripcion": "Sistema para registrar desaparecidos, reportar daños estructurales y gestionar traslados a centros de salud.",
     "url": "https://terremoto.hazlohoy.org",
-    "etiquetas": ["desaparecidos", "daños estructurales", "traslados", "salud", "terremoto", "registro"]
+    "etiquetas": [
+      "desaparecidos",
+      "daños estructurales",
+      "traslados",
+      "salud",
+      "terremoto",
+      "registro"
+    ]
   },
   {
     "nombre": "Venezuela Te Busca",
     "categoria": "Búsqueda y Localización",
     "descripcion": "Herramienta que permite registrar expedientes de personas extraviadas y consultar bases de datos de hospitales.",
     "url": "https://venezuelatebusca.com",
-    "etiquetas": ["extraviados", "expedientes", "hospitales", "busqueda", "bases de datos"]
+    "etiquetas": [
+      "extraviados",
+      "expedientes",
+      "hospitales",
+      "busqueda",
+      "bases de datos"
+    ]
   },
   {
     "nombre": "Localizados Venezuela",
     "categoria": "Búsqueda y Localización",
     "descripcion": "Registro especializado exclusivamente en personas que ya han sido localizadas a salvo en hospitales o albergues.",
     "url": "https://localizadosvenezuela.com",
-    "etiquetas": ["localizados", "a salvo", "hospitales", "albergues", "registro"]
+    "etiquetas": [
+      "localizados",
+      "a salvo",
+      "hospitales",
+      "albergues",
+      "registro"
+    ]
   },
   {
     "nombre": "Ayuda — Creador Webs",
     "categoria": "Directorio de Ayuda",
     "descripcion": "Directorio geográfico que permite filtrar por estado para encontrar centros de acopio activos y verificados.",
     "url": "https://ayuda.creadorwebs.com",
-    "etiquetas": ["directorio", "centros de acopio", "estados", "filtro", "verificado"]
+    "etiquetas": [
+      "directorio",
+      "centros de acopio",
+      "estados",
+      "filtro",
+      "verificado"
+    ]
   },
   {
     "nombre": "Logistics Cluster — Terremoto 2026",
     "categoria": "Directorio de Ayuda",
     "descripcion": "Portal oficial de coordinación humanitaria con informes de situación y logística en las zonas afectadas.",
     "url": "https://logcluster.org/es/activities/earthquake-2026",
-    "etiquetas": ["logistica", "coordinacion", "humanitaria", "informes", "internacional", "onu"]
+    "etiquetas": [
+      "logistica",
+      "coordinacion",
+      "humanitaria",
+      "informes",
+      "internacional",
+      "onu"
+    ]
   },
   {
     "nombre": "Recursos VE",
     "categoria": "Directorio de Ayuda",
     "descripcion": "Directorio de recursos y enlaces de ayuda organizados para facilitar el acceso rápido a información de asistencia.",
     "url": "https://recusosve.lovable.app",
-    "etiquetas": ["directorio", "recursos", "enlaces", "asistencia"]
+    "etiquetas": [
+      "directorio",
+      "recursos",
+      "enlaces",
+      "asistencia"
+    ]
   },
   {
     "nombre": "Ayuda en Camino",
     "categoria": "Directorio de Ayuda",
     "descripcion": "Plataforma de coordinación humanitaria en tiempo real. Conecta organizaciones, centros de acopio y donantes durante la emergencia en Venezuela para gestionar suministros de forma ágil.",
     "url": "https://www.ayudaencamino.com",
-    "etiquetas": ["coordinacion", "donantes", "acopio", "suministros", "tiempo real", "emergencia", "humanitaria"]
+    "etiquetas": [
+      "coordinacion",
+      "donantes",
+      "acopio",
+      "suministros",
+      "tiempo real",
+      "emergencia",
+      "humanitaria"
+    ]
   },
   {
     "nombre": "SOS Yummy Rides",
     "categoria": "Directorio de Ayuda",
     "descripcion": "Plataforma de solicitud de traslados y apoyo logístico para personas afectadas que necesitan movilizarse durante la emergencia.",
     "url": "https://sos.yummyrides.com/",
-    "etiquetas": ["traslados", "transporte", "logistica", "emergencia", "movilizacion"]
+    "etiquetas": [
+      "traslados",
+      "transporte",
+      "logistica",
+      "emergencia",
+      "movilizacion"
+    ]
+  },
+  {
+    "nombre": "Red de Voluntarios — Solicitudes",
+    "categoria": "Voluntariado",
+    "descripcion": "Plataforma para registrar solicitudes de ayuda post-terremoto y hacer seguimiento en tiempo real. Permite a familias pedir asistencia y a voluntarios administradores gestionar el estado de cada solicitud (recibida, en proceso, entregada).",
+    "url": "https://solicitudesredvoluntarios.lovable.app/",
+    "etiquetas": [
+      "voluntarios",
+      "solicitudes",
+      "coordinacion",
+      "terremoto",
+      "ayuda",
+      "tiempo real",
+      "seguimiento",
+      "registro"
+    ]
   }
 ]
