@@ -76,21 +76,7 @@
       "numeros"
     ]
   },
-  {
-    "nombre": "PROVEA",
-    "categoria": "Información",
-    "descripcion": "Programa Venezolano de Educación-Acción en Derechos Humanos. Publica informes sobre salud, alimentación y situación humanitaria con datos verificados y actualizados.",
-    "url": "https://provea.org",
-    "etiquetas": [
-      "derechos",
-      "informes",
-      "denuncia",
-      "salud",
-      "humanitaria",
-      "nacional",
-      "investigacion"
-    ]
-  },
+
   {
     "nombre": "Ayuda Humanitaria Venezuela",
     "categoria": "Alimentación",
@@ -216,18 +202,7 @@
       "onu"
     ]
   },
-  {
-    "nombre": "Recursos VE",
-    "categoria": "Directorio de Ayuda",
-    "descripcion": "Directorio de recursos y enlaces de ayuda organizados para facilitar el acceso rápido a información de asistencia.",
-    "url": "https://recusosve.lovable.app",
-    "etiquetas": [
-      "directorio",
-      "recursos",
-      "enlaces",
-      "asistencia"
-    ]
-  },
+
   {
     "nombre": "Ayuda en Camino",
     "categoria": "Directorio de Ayuda",
