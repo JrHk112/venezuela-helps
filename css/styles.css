@@ -383,6 +383,14 @@ body::after {
   line-height: 1.6;
 }
 
+/* Contenedor de acciones (visitar + compartir) */
+.link-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .link-card__cta {
   display: flex;
   align-items: center;
@@ -407,6 +415,49 @@ body::after {
 
 .link-card__cta:hover {
   background-color: var(--accent-strong);
+}
+
+/* Botón Compartir */
+.link-card__share {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.link-card__share svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.link-card__share:hover {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.link-card__share--copiado {
+  background: color-mix(in srgb, #22c55e 12%, transparent);
+  color: #16a34a;
+  border-color: #86efac;
+}
+
+.link-card__share--copiado:hover {
+  background: color-mix(in srgb, #22c55e 18%, transparent);
+  color: #15803d;
+  border-color: #86efac;
 }
 
 /* ==========================================================================
@@ -440,6 +491,19 @@ body::after {
 
 .state-message--error p {
   color: var(--danger);
+}
+
+.state-message__tips {
+  list-style: disc;
+  text-align: left;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  max-width: 26rem;
+  padding-left: 1.25rem;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 /* Accesibilidad: foco visible en toda la página */
@@ -488,4 +552,57 @@ input:focus-visible {
 .site-footer a:hover {
   color: var(--accent-strong);
   text-decoration: underline;
+}
+
+.footer-updated {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+/* Aviso ciudadano */
+.aviso-ciudadano {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  max-width: 860px;
+  margin: 1.25rem auto 0;
+  padding: 0.85rem 1.1rem;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.aviso-ciudadano svg {
+  color: var(--accent);
+}
+
+.aviso-ciudadano p {
+  margin: 0;
+}
+
+.aviso-ciudadano strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+  .aviso-ciudadano {
+    margin: 1rem 1rem 0;
+    padding: 1rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    gap: 0.75rem;
+  }
+
+  .link-card__actions {
+    gap: 0.4rem;
+  }
+
+  .link-card__cta {
+    flex: 1;
+    justify-content: center;
+  }
 }
