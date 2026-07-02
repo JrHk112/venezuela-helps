@@ -40,6 +40,8 @@ const LinksView = (() => {
     externalLink: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>',
     searchOff: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
     alertCircle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>',
+    share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 3.9M15.4 6.6 8.6 10.5"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
   };
 
   // Iconos por categoría (constantes internas).
@@ -158,8 +160,57 @@ const LinksView = (() => {
     enlace.setAttribute('rel', 'noopener noreferrer');
     enlace.innerHTML = 'Visitar sitio de ayuda ' + ICONS.externalLink;
 
+    const btnCompartir = document.createElement('button');
+    btnCompartir.type = 'button';
+    btnCompartir.className = 'link-card__share';
+    btnCompartir.setAttribute('aria-label', 'Compartir ' + nombre);
+    btnCompartir.innerHTML = ICONS.share + '<span>Compartir</span>';
+
+    btnCompartir.addEventListener('click', () => {
+      const textoCompartir = `${nombre}\n${descripcion}\n${url}`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: nombre,
+          text: descripcion,
+          url: url,
+        }).catch(() => {/* el usuario canceló — no hacer nada */});
+      } else {
+        // Fallback: copiar al portapapeles
+        navigator.clipboard.writeText(textoCompartir).then(() => {
+          btnCompartir.classList.add('link-card__share--copiado');
+          btnCompartir.innerHTML = ICONS.check + '<span>¡Copiado!</span>';
+          setTimeout(() => {
+            btnCompartir.classList.remove('link-card__share--copiado');
+            btnCompartir.innerHTML = ICONS.share + '<span>Compartir</span>';
+          }, 2000);
+        }).catch(() => {
+          // Fallback final si clipboard tampoco está disponible
+          const input = document.createElement('textarea');
+          input.value = textoCompartir;
+          input.style.position = 'fixed';
+          input.style.opacity = '0';
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+          btnCompartir.classList.add('link-card__share--copiado');
+          btnCompartir.innerHTML = ICONS.check + '<span>¡Copiado!</span>';
+          setTimeout(() => {
+            btnCompartir.classList.remove('link-card__share--copiado');
+            btnCompartir.innerHTML = ICONS.share + '<span>Compartir</span>';
+          }, 2000);
+        });
+      }
+    });
+
+    const acciones = document.createElement('div');
+    acciones.className = 'link-card__actions';
+    acciones.appendChild(enlace);
+    acciones.appendChild(btnCompartir);
+
     card.appendChild(topSection);
-    card.appendChild(enlace);
+    card.appendChild(acciones);
     return card;
   }
 
