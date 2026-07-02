@@ -170,7 +170,7 @@ const LinksView = (() => {
       const total = links.length;
       resultsCount.textContent = total > 0
         ? `${total} resultado${total !== 1 ? 's' : ''} encontrado${total !== 1 ? 's' : ''}`
-        : 'No se encontraron resultados';
+        : '';
     }
 
     if (links.length === 0) {
@@ -178,8 +178,20 @@ const LinksView = (() => {
       msg.className = 'state-message state-message--empty';
       msg.innerHTML = ICONS.searchOff;
       const p = document.createElement('p');
-      p.textContent = 'No se encontraron sitios de ayuda con esos criterios. Prueba con otra palabra clave.';
+      p.textContent = 'No encontramos recursos con esos términos.';
       msg.appendChild(p);
+      const sugerencias = document.createElement('ul');
+      sugerencias.className = 'state-message__tips';
+      [
+        'Revisa la ortografía o prueba con sinónimos (ej. "comida" en vez de "alimentación").',
+        'Usa términos más generales como "salud", "medicinas" o "Caracas".',
+        'Elimina el filtro de categoría activo y busca en todo el directorio.',
+      ].forEach((texto) => {
+        const li = document.createElement('li');
+        li.textContent = texto;
+        sugerencias.appendChild(li);
+      });
+      msg.appendChild(sugerencias);
       contenedor.appendChild(msg);
       return;
     }
