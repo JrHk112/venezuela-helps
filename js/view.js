@@ -73,6 +73,38 @@ const LinksView = (() => {
       .replace(/[\u0300-\u036f]/g, '');
   }
 
+  // Resalta el término buscado dentro de un texto plano, devuelve un DocumentFragment.
+  function resaltarTermino(texto, termino) {
+    const fragmento = document.createDocumentFragment();
+    if (!termino || termino.length < 2) {
+      fragmento.appendChild(document.createTextNode(texto));
+      return fragmento;
+    }
+
+    const textoNorm   = normalizar(texto);
+    const terminoNorm = normalizar(termino);
+
+    let cursor = 0;
+    let idx;
+
+    while ((idx = textoNorm.indexOf(terminoNorm, cursor)) !== -1) {
+      if (idx > cursor) {
+        fragmento.appendChild(document.createTextNode(texto.slice(cursor, idx)));
+      }
+      const mark = document.createElement('mark');
+      mark.className = 'highlight';
+      mark.textContent = texto.slice(idx, idx + termino.length);
+      fragmento.appendChild(mark);
+      cursor = idx + termino.length;
+    }
+
+    if (cursor < texto.length) {
+      fragmento.appendChild(document.createTextNode(texto.slice(cursor)));
+    }
+
+    return fragmento;
+  }
+
   function iconoDeCategoria(categoria) {
     const clave = normalizar(categoria || '');
     return CATEGORY_ICONS[clave] || CATEGORY_ICONS[categoria?.toLowerCase()] || CATEGORY_ICONS.default;
@@ -108,7 +140,8 @@ const LinksView = (() => {
   if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
 
   // Construye tarjetas con createElement/textContent/setAttribute — sin innerHTML con datos.
-  function crearTarjeta(link) {
+  // termino (opcional): palabra buscada para resaltar coincidencias.
+  function crearTarjeta(link, termino) {
     if (!link || typeof link !== 'object') return null;
 
     const nombre      = typeof link.nombre      === 'string' ? link.nombre.trim()      : '';
@@ -134,7 +167,7 @@ const LinksView = (() => {
 
     const titulo = document.createElement('h3');
     titulo.className = 'link-card__title';
-    titulo.textContent = nombre;
+    titulo.appendChild(resaltarTermino(nombre, termino));
 
     const badge = document.createElement('span');
     badge.className = 'link-card__badge';
@@ -147,7 +180,7 @@ const LinksView = (() => {
 
     const desc = document.createElement('p');
     desc.className = 'link-card__desc';
-    desc.textContent = descripcion;
+    desc.appendChild(resaltarTermino(descripcion, termino));
 
     const topSection = document.createElement('div');
     topSection.appendChild(head);
@@ -214,7 +247,7 @@ const LinksView = (() => {
     return card;
   }
 
-  function mostrarLinks(links) {
+  function mostrarLinks(links, termino) {
     contenedor.innerHTML = '';
 
     if (resultsCount) {
@@ -249,7 +282,7 @@ const LinksView = (() => {
 
     const fragmento = document.createDocumentFragment();
     links.forEach((link) => {
-      const tarjeta = crearTarjeta(link);
+      const tarjeta = crearTarjeta(link, termino);
       if (tarjeta) fragmento.appendChild(tarjeta);
     });
     contenedor.appendChild(fragmento);
@@ -294,7 +327,8 @@ const LinksView = (() => {
   }
 
   // Renderiza los botones de filtro de categoría.
-  function renderizarFiltros(categorias, categoriaActiva, onFiltro) {
+  // conteosPorCategoria: Map<string, number> con el total de recursos por categoría.
+  function renderizarFiltros(categorias, categoriaActiva, onFiltro, conteosPorCategoria) {
     if (!filtrosContenedor) return;
     filtrosContenedor.innerHTML = '';
 
@@ -302,7 +336,19 @@ const LinksView = (() => {
     const btnTodos = document.createElement('button');
     btnTodos.type = 'button';
     btnTodos.className = 'filtro-btn' + (!categoriaActiva ? ' filtro-btn--activo' : '');
-    btnTodos.textContent = 'Todas';
+
+    const labelTodos = document.createElement('span');
+    labelTodos.textContent = 'Todas';
+    btnTodos.appendChild(labelTodos);
+
+    if (conteosPorCategoria) {
+      const total = [...conteosPorCategoria.values()].reduce((a, b) => a + b, 0);
+      const countTodos = document.createElement('span');
+      countTodos.className = 'filtro-btn__count';
+      countTodos.textContent = total;
+      btnTodos.appendChild(countTodos);
+    }
+
     btnTodos.addEventListener('click', () => onFiltro(null));
     filtrosContenedor.appendChild(btnTodos);
 
@@ -320,6 +366,14 @@ const LinksView = (() => {
 
       btn.appendChild(iconSpan);
       btn.appendChild(label);
+
+      if (conteosPorCategoria && conteosPorCategoria.has(cat)) {
+        const countSpan = document.createElement('span');
+        countSpan.className = 'filtro-btn__count';
+        countSpan.textContent = conteosPorCategoria.get(cat);
+        btn.appendChild(countSpan);
+      }
+
       btn.addEventListener('click', () => onFiltro(cat));
       filtrosContenedor.appendChild(btn);
     });

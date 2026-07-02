@@ -12,13 +12,23 @@ const LinksController = (() => {
       let categoriaActiva = null;
       let terminoBusqueda = '';
 
+      function calcularConteos() {
+        const todos = LinksModel.obtenerTodos();
+        const mapa = new Map();
+        todos.forEach((link) => {
+          mapa.set(link.categoria, (mapa.get(link.categoria) || 0) + 1);
+        });
+        return mapa;
+      }
+
       function actualizarVista() {
         const resultados = LinksModel.filtrar(terminoBusqueda, categoriaActiva);
+        const conteos    = calcularConteos();
         LinksView.renderizarFiltros(categorias, categoriaActiva, (cat) => {
           categoriaActiva = cat;
           actualizarVista();
-        });
-        LinksView.mostrarLinks(resultados);
+        }, conteos);
+        LinksView.mostrarLinks(resultados, terminoBusqueda.trim());
       }
 
       actualizarVista();
